@@ -30,7 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashScreen));
             pictureBox1 = new PictureBox();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            surahPicker = new FlowLayoutPanel();
+            searchbar = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -38,19 +39,33 @@
             // 
             pictureBox1.BackgroundImage = Properties.Resources._343a40;
             pictureBox1.Image = Properties.Resources.Quran_Kareem1;
-            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Location = new Point(2, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(310, 118);
+            pictureBox1.Size = new Size(127, 118);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // flowLayoutPanel1
+            // surahPicker
             // 
-            flowLayoutPanel1.Location = new Point(12, 152);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(310, 297);
-            flowLayoutPanel1.TabIndex = 1;
+            surahPicker.AutoScroll = true;
+            surahPicker.BackgroundImage = Properties.Resources._343a40;
+            surahPicker.FlowDirection = FlowDirection.TopDown;
+            surahPicker.Location = new Point(2, 136);
+            surahPicker.Name = "surahPicker";
+            surahPicker.RightToLeft = RightToLeft.No;
+            surahPicker.Size = new Size(330, 343);
+            surahPicker.TabIndex = 1;
+            // 
+            // searchbar
+            // 
+            searchbar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            searchbar.Location = new Point(135, 60);
+            searchbar.Name = "searchbar";
+            searchbar.PlaceholderText = "Search for a Surah";
+            searchbar.Size = new Size(197, 25);
+            searchbar.TabIndex = 2;
+            searchbar.TextChanged += searchbar_TextChanged;
             // 
             // SplashScreen
             // 
@@ -58,8 +73,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
             BackgroundImage = Properties.Resources._343a40;
-            ClientSize = new Size(334, 461);
-            Controls.Add(flowLayoutPanel1);
+            ClientSize = new Size(334, 491);
+            Controls.Add(searchbar);
+            Controls.Add(surahPicker);
             Controls.Add(pictureBox1);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -71,11 +87,13 @@
             Load += SplashScreen_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private PictureBox pictureBox1;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel surahPicker;
+        private TextBox searchbar;
     }
 }

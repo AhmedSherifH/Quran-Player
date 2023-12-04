@@ -33,7 +33,9 @@
             surahPicker = new FlowLayoutPanel();
             searchbar = new TextBox();
             enterButton = new Button();
+            AlAnbya_89 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AlAnbya_89).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -78,6 +80,17 @@
             enterButton.UseVisualStyleBackColor = true;
             enterButton.Click += EnterButton_Click;
             // 
+            // AlAnbya_89
+            // 
+            AlAnbya_89.BackgroundImage = Properties.Resources._343a40;
+            AlAnbya_89.Image = Properties.Resources.Al_Anbya_89;
+            AlAnbya_89.Location = new Point(135, 4);
+            AlAnbya_89.Name = "AlAnbya_89";
+            AlAnbya_89.Size = new Size(197, 50);
+            AlAnbya_89.SizeMode = PictureBoxSizeMode.Zoom;
+            AlAnbya_89.TabIndex = 3;
+            AlAnbya_89.TabStop = false;
+            // 
             // SplashScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -85,6 +98,7 @@
             BackColor = SystemColors.ControlDark;
             BackgroundImage = Properties.Resources._343a40;
             ClientSize = new Size(334, 491);
+            Controls.Add(AlAnbya_89);
             Controls.Add(enterButton);
             Controls.Add(searchbar);
             Controls.Add(surahPicker);
@@ -98,6 +112,7 @@
             Text = "Quran";
             Load += SplashScreen_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AlAnbya_89).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -108,5 +123,6 @@
         private FlowLayoutPanel surahPicker;
         private TextBox searchbar;
         private Button enterButton;
+        private PictureBox AlAnbya_89;
     }
 }

@@ -73,6 +73,16 @@ namespace Quran_Player.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Al_Anbya_89 {
+            get {
+                object obj = ResourceManager.GetObject("Al-Anbya_89", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Quran_Kareem {
             get {
                 object obj = ResourceManager.GetObject("Quran_Kareem", resourceCulture);

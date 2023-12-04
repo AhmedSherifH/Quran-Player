@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Xml.Linq;
 
 namespace Quran_Player
 {
@@ -112,7 +113,22 @@ namespace Quran_Player
             if (sender is Button button)
             {
                 pickedSurah = button.Text;
-                Debug.WriteLine(pickedSurah);
+                int ayah = 1;
+                foreach (string i in surahs)
+                {
+                    if (i == pickedSurah)
+                    {
+                        Debug.WriteLine("Surah: " + pickedSurah + ". Ayah: " + ayah);
+                    }
+                    else
+                    {
+                        ayah++;
+                    }
+                }
+
+               // SurahPlayer surahPlayer = new();
+               // surahPlayer.Show();
+               // this.Hide();
             }
         }
 

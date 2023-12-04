@@ -1,7 +1,11 @@
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+
 namespace Quran_Player
 {
     public partial class SplashScreen : Form
     {
+
 
         public SplashScreen()
         {
@@ -26,29 +30,35 @@ namespace Quran_Player
                                    "Ad-Duhaa", "Ash-Sharh", "At-Tin", "Al-'Alaq", "Al-Qadr", "Al-Bayyinah", "Az-Zalzalah", "Al-'Adiyat",
                                    "Al-Qari'ah", "At-Takathur", "Al-'Asr", "Al-Humazah", "Al-Fil", "Quraysh", "Al-Ma'un", "Al-Kawthar",
                                    "Al-Kafirun", "An-Nasr", "Al-Masad", "Al-Ikhlas", "Al-Falaq", "An-Nas" };
-
+        public string pickedSurah = string.Empty;
         private void SplashScreen_Load(object sender, EventArgs e)
         {
             AddButtons();
         }
 
-        private void searchbar_TextChanged(object sender, EventArgs e)
+
+
+
+        private void EnterButton_Click(object sender, EventArgs e)
         {
+
             string search = "";
             surahPicker.Controls.Clear();
             if (string.IsNullOrEmpty(searchbar.Text))
             {
                 // Pass
             }
-            else { search = char.ToUpper(searchbar.Text[0]) + searchbar.Text.Substring(1); }
+            else { search = char.ToUpper(searchbar.Text[0]) + searchbar.Text[1..]; }
             bool emptySearch = string.IsNullOrWhiteSpace(search);
 
-            if (emptySearch) {
+            if (emptySearch)
+            {
 
                 AddButtons();
-            
+
             }
-            else {
+            else
+            {
 
                 foreach (string surah in surahs)
                 {
@@ -57,40 +67,54 @@ namespace Quran_Player
 
                         Button button = new()
                         {
-                            Width = 100,
+                            Width = 140,
                             Text = surah,
                             BackgroundImage = Properties.Resources._343a40,
                             ForeColor = Color.White
                         };
                         button.Font = new Font(button.Font.FontFamily, 10, FontStyle.Bold);
                         button.UseCompatibleTextRendering = true;
+                        button.Click += SurahClick;
                         surahPicker.Controls.Add(button);
                     }
                 }
+            }
 
-            }   
         }
+
+
+
 
 
         public void AddButtons()
         {
+
             foreach (string surah in surahs)
             {
 
                 Button button = new()
                 {
-                    Width = 100,
+                    Width = 140,
                     Text = surah,
                     BackgroundImage = Properties.Resources._343a40,
                     ForeColor = Color.White
                 };
                 button.Font = new Font(button.Font.FontFamily, 10, FontStyle.Bold);
                 button.UseCompatibleTextRendering = true;
+                button.Click += SurahClick;
                 surahPicker.Controls.Add(button);
             }
-            
+
         }
-    
+
+        private void SurahClick(object? sender, EventArgs e)
+        {
+            if (sender is Button button)
+            {
+                pickedSurah = button.Text;
+                Debug.WriteLine(pickedSurah);
+            }
+        }
 
     }
 }

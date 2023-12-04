@@ -32,6 +32,7 @@
             pictureBox1 = new PictureBox();
             surahPicker = new FlowLayoutPanel();
             searchbar = new TextBox();
+            enterButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -65,7 +66,17 @@
             searchbar.PlaceholderText = "Search for a Surah";
             searchbar.Size = new Size(197, 25);
             searchbar.TabIndex = 2;
-            searchbar.TextChanged += searchbar_TextChanged;
+            // 
+            // enterButton
+            // 
+            enterButton.FlatStyle = FlatStyle.Popup;
+            enterButton.Location = new Point(193, 91);
+            enterButton.Name = "enterButton";
+            enterButton.Size = new Size(75, 25);
+            enterButton.TabIndex = 0;
+            enterButton.Text = "Enter";
+            enterButton.UseVisualStyleBackColor = true;
+            enterButton.Click += EnterButton_Click;
             // 
             // SplashScreen
             // 
@@ -74,6 +85,7 @@
             BackColor = SystemColors.ControlDark;
             BackgroundImage = Properties.Resources._343a40;
             ClientSize = new Size(334, 491);
+            Controls.Add(enterButton);
             Controls.Add(searchbar);
             Controls.Add(surahPicker);
             Controls.Add(pictureBox1);
@@ -95,5 +107,6 @@
         private PictureBox pictureBox1;
         private FlowLayoutPanel surahPicker;
         private TextBox searchbar;
+        private Button enterButton;
     }
 }

@@ -113,22 +113,26 @@ namespace Quran_Player
             if (sender is Button button)
             {
                 pickedSurah = button.Text;
-                int ayah = 1;
+                int SurahNumber = 1;
                 foreach (string i in surahs)
                 {
                     if (i == pickedSurah)
                     {
-                        Debug.WriteLine("Surah: " + pickedSurah + ". Ayah: " + ayah);
+                        Debug.WriteLine("Surah: " + pickedSurah + ". Surah Number: " + SurahNumber);
+                        SurahPlayer surahPlayer = new()
+                        {
+                            SurahNumber = SurahNumber
+                        };
+                        surahPlayer.Show();
+                        this.Hide();
                     }
                     else
                     {
-                        ayah++;
+                        SurahNumber++;
                     }
                 }
 
-               // SurahPlayer surahPlayer = new();
-               // surahPlayer.Show();
-               // this.Hide();
+               
             }
         }
 
